@@ -68,6 +68,18 @@ A placa foi projetada no EasyEDA. Os primeiros protótipos foram feitos à mão 
 | A0 | Tensão da bateria |
 | GPIO4 e GPIO5 | I²C do MPU-6050 |
 
+## Recursos de sistemas embarcados usados
+
+| Recurso | Onde é usado |
+|---|---|
+| I²C | Leitura do MPU-6050, nos registradores de 0x3B a 0x48 |
+| ADC | Medição da tensão da bateria, convertida em porcentagem |
+| GPIO com MOSFETs | Acionamento dos três ramos de motores |
+| Temporização com `millis()` | Ciclo de tempo ligado e desligado dos motores |
+| Wi-Fi em modo estação, com IP fixo | Conexão com o roteador da granja |
+| Servidor HTTP e JSON (ArduinoJson) | Comunicação com o aplicativo |
+| Compilação condicional (`#ifdef`) | Versões com e sem Wi-Fi no mesmo código |
+
 ## API HTTP
 
 Na versão com Wi-Fi, cada cinta tem um IP fixo na rede da granja e um nome, e o aplicativo Android da Mars conversa com ela pela porta 80.
